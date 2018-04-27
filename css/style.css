@@ -1,0 +1,37 @@
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.field li {
+  list-style-type: none;
+  padding: 5px;
+  border: 1px solid;
+  height: 50px;
+}
+
+.field li button {
+  height: 50px;
+  width: 50px;
+  font-size: 30px;
+}
+
+.field ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+}
+
+/*# sourceMappingURL=style.css.map */

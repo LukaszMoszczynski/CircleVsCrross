@@ -1,0 +1,47 @@
+.menu {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  margin: 10px;
+}
+
+.field {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+
+.field li {
+  list-style-type: none;
+  padding: 5px;
+  border: 1px solid;
+  height: 50px;
+}
+
+.field li button {
+  height: 50px;
+  width: 50px;
+  font-size: 30px;
+}
+
+.field ul {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  margin: 0px;
+  padding: 0px;
+}
+/*# sourceMappingURL=style.prefixed.css.map */
