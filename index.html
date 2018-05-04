@@ -3,48 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <title>Circle VS Cross</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<div class = "menu">
+	<section>
+		<div class = "menu">
 		<h1>Circle vs Cross</h1>
-		<button>New Game</button>
+		<button id="newGame">New Game</button>
 	</div>
-	<div class = "field">
-		<ul>
-			<li>
-				<button class = "field-button"></button>
-			</li>
-			<li>
-				<button class = "field-button"></button>
-			</li>
-			<li>
-				<button class = "field-button"></button>
-			</li>
-		</ul>
-		<ul>
-			<li>
-				<button class = "field-button"></button>
-			</li>
-			<li>
-				<button class = "field-button"></button>
-			</li>
-			<li>
-				<button class = "field-button"></button>
-			</li>
-		</ul>
-		<ul>
-			<li>
-				<button class = "field-button"></button>
-			</li>
-			<li>
-				<button class = "field-button"></button>
-			</li>
-			<li>
-				<button class = "field-button"></button>
-			</li>
-		</ul>
-	</div>
+	</section>
+	<section class="container">
+		<div class="row">
+			<div id = "player1" class="player">
+				<p id="player1Name">Player 1</p>
+				<p>score</p>
+				<p id = "player1Score">0</p>
+			</div>
+			<div class = "field" id="gameBoard">
+				<ul>
+					<li>
+						<button class = "field-button"></button>
+					</li>
+					<li>
+						<button class = "field-button"></button>
+					</li>
+					<li>
+						<button class = "field-button"></button>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<button class = "field-button"></button>
+					</li>
+					<li>
+						<button class = "field-button"></button>
+					</li>
+					<li>
+						<button class = "field-button"></button>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<button class = "field-button"></button>
+					</li>
+					<li>
+						<button class = "field-button"></button>
+					</li>
+					<li>
+						<button class = "field-button"></button>
+					</li>
+				</ul>
+			</div>
+			<div id = "player2" class="player">
+				<p id="player2Name">Player 2</p>
+				<p>score</p>
+				<p id = "player2Score">0</p>
+			</div>
+		</div>
+	</section>
 	<script type="text/javascript" src="js/scripts.js"></script>
 </body>
 </html>

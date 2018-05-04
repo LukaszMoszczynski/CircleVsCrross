@@ -10,7 +10,14 @@
   margin: 10px;
 }
 
-.field {
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+
+.row .field {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
@@ -19,20 +26,19 @@
       justify-content: center;
 }
 
-.field li {
+.row .field li {
   list-style-type: none;
-  padding: 5px;
   border: 1px solid;
   height: 50px;
 }
 
-.field li button {
+.row .field li button {
   height: 50px;
   width: 50px;
   font-size: 30px;
 }
 
-.field ul {
+.row .field ul {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
@@ -43,5 +49,10 @@
       flex-direction: column;
   margin: 0px;
   padding: 0px;
+}
+
+.row .player {
+  padding: 10px;
+  text-align: center;
 }
 /*# sourceMappingURL=style.prefixed.css.map */
