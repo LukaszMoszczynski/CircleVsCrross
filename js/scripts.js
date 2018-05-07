@@ -52,8 +52,9 @@ function winCheck() {
 		fields[2].innerText === fields[5].innerText && fields[5].innerText === fields[8].innerText && fields[8].innerText === "X"||
 		fields[0].innerText === fields[4].innerText && fields[4].innerText === fields[8].innerText && fields[8].innerText === "X"||
 		fields[2].innerText === fields[4].innerText && fields[4].innerText === fields[6].innerText && fields[6].innerText === "X" ){
-		alert("wygrana X");
+		alert("wygrana  " + player2.name);
 		gameState = "ended";
+		gameRound++;
 		setGameElements();
 		player2.score++;
 		setGamePoints();
@@ -66,8 +67,9 @@ function winCheck() {
 		fields[2].innerText === fields[5].innerText && fields[5].innerText === fields[8].innerText && fields[8].innerText === "O"||
 		fields[0].innerText === fields[4].innerText && fields[4].innerText === fields[8].innerText && fields[8].innerText === "O"||
 		fields[2].innerText === fields[4].innerText && fields[4].innerText === fields[6].innerText && fields[6].innerText === "O" ) {
-		alert("wygrana O");
+		alert("wygrana " + player.name);
 		gameState = "ended";
+		gameRound++;
 		setGameElements();
 		player.score++;
 		setGamePoints();
@@ -75,6 +77,7 @@ function winCheck() {
 	} else if (fields[0].innerText && fields[1].innerText && fields[2].innerText && fields[3].innerText && fields[4].innerText && fields[5].innerText && fields[6].innerText && fields[7].innerText && fields[8].innerText !== "") {
 		alert("remis");
 		gameState = "ended";
+		gameRound++;
 		setGameElements();
 	}
 	return
@@ -83,6 +86,8 @@ function winCheck() {
 
 const newGameElem = document.getElementById("newGame");
       newGameElem.addEventListener("click", newGame);
+      nextGameElem = document.getElementById("nextRound");
+      nextGameElem.addEventListener("click", nextGame);
 
 let gameState = "notStarted",
 	player = {
@@ -93,19 +98,26 @@ let gameState = "notStarted",
 		name: "",
 		score: 0
 	};
-
+	gameRound = 0;
 const field = document.getElementById('gameBoard');
+	player1Elem = document.getElementById("player1");
+	player2Elem = document.getElementById("player2");
+
 
 function setGameElements() {
 	switch(gameState) {
 		case "started":
 			newGameElem.style.display = "none";
+			nextGameElem.style.display = "none";
 			field.style.display = "flex";
 			field.style.alignItems = "center";
+			player1Elem.style.display = "block";
+			player2Elem.style.display = "block";
+			round = 0;
 			break;
 		case "ended":
+
 			newGameElem.style.display ="block";
-			newGameElem.innerText = "Play again";
 			for ( let i = 0; i < fields.length; i++){
 				fields[i].innerText = "";
 			}
@@ -114,6 +126,15 @@ function setGameElements() {
 		default:
 			newGameElem.style.display = "block";
 			field.style.display = "none";
+			if (gameRound > 0) {
+				nextGameElem.style.display = "block";
+				player1Elem.style.display = "block";
+				player2Elem.style.display = "block";
+			} else {
+				nextGameElem.style.display = "none";
+				player1Elem.style.display = "none";
+				player2Elem.style.display = "none";
+			}			
 	}
 }
 setGameElements();
@@ -121,15 +142,21 @@ setGameElements();
 const playerNameElem = document.getElementById('player1Name');
 	player2NameElem = document.getElementById('player2Name');
 
+function nextGame() {
+	gameState="started";
+	setGameElements();
+}
 
 function newGame() {
 	player.name = prompt("Please enter your name", "Player 1");
 	player2.name = prompt("Please enter your name", "Player 2");
 	if (player.name && player2.name) {
 		gameState="started";
+		gameRound = 0;
 		setGameElements();
 		playerNameElem.innerHTML = player.name;
 		player2NameElem.innerHTML = player2.name;
+		player.score = player2.score = 0;
 		setGamePoints();
 	}
 }
