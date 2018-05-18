@@ -139,11 +139,6 @@ setGameElements();
 const playerNameElem = document.getElementById('player1Name');
 	player2NameElem = document.getElementById('player2Name');
 
-function nextGame() {
-	gameState='started';
-	setGameElements();
-}
-
 // prompt functions 
 function changeText(val){
 	playerNameElem.innerHTML = val;	
@@ -185,6 +180,11 @@ function newGame() {
 	}
 }
 
+function nextGame() {
+	gameState='started';
+	setGameElements();
+}
+
 const player1PointsElem = document.getElementById('player1Score');
 	player2PointsElem = document.getElementById('player2Score');
 
@@ -210,7 +210,14 @@ function CustomAlert(){
 	    dialogbox.style.display = "block";
 		document.getElementById('dialogboxhead').innerHTML = "Result";
 	    document.getElementById('dialogboxbody').innerHTML = dialog;
-		document.getElementById('dialogboxfoot').innerHTML = '<button onclick="Alert.ok()"><div class="insider"></div>OK</button>';
+		document.getElementById('dialogboxfoot').innerHTML = '<button id="closeOk" onclick="Alert.ok()"><div class="insider"></div>OK</button>';
+
+		document.addEventListener("keyup", function(event) {		 
+			event.preventDefault();		
+			if (event.keyCode === 13) {
+				document.getElementById("closeOk").click();
+		  }
+		});	
 	}
 	this.ok = function(){
 		document.getElementById('dialogbox').style.display = "none";
@@ -241,6 +248,21 @@ function CustomPrompt() {
 
 			var closeCancel = document.getElementById('closeCancel');
 			var closeOk = document.getElementById('closeOK');
+			var prompt_value1 = document.getElementById('prompt_value1');
+
+			prompt_value1.focus();
+
+////// alow enter and esc on prompt
+			prompt_value1.addEventListener("keyup", function(event) {			 
+			  event.preventDefault();		
+			  if (event.keyCode === 13) {
+			    document.getElementById("closeOK").click();
+			  }
+			  if (event.keyCode === 27) {
+			    document.getElementById("closeCancel").click();
+			  }
+			});
+
 
 			closeOk.addEventListener('click', function() {
 				self.ok(func);
