@@ -158,7 +158,7 @@ function changeText2(val){
  		player2.name = "Player 2";
  	}
 }
-
+///
 
 function pickPlayers() {
 	Prompt.render('Please enter your name', 'changeText').then(function () {
